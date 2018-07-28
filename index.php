@@ -31,6 +31,7 @@ else if ( $text == "$uid*$phone" || $text == "$uid*$phone*1*2" ) {
   $response .= "1. $child1 \n";
   $response .= "2. $child2 \n";
   $response .= "3. Add a Child";
+  $text = "$uid*$phone";
   
 }else if($text == "$uid*$phone*1") {
  
