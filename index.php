@@ -53,7 +53,7 @@ else if ( $text == "12345*1*$name*$date*$no" ) {
    // This is a terminal request. Note how we start the response with END
    $response = "CON Enter Parents Phone No";
 }
-else if ( $text == "12345*1*$name*$date*$no*phone" ) {
+else if ( $text == "12345*1*$name*$date*$no*$phone" ) {
   
    // This is a second level response where the user selected 1 in the first instance
    $balance  = "NGN 10,000";
