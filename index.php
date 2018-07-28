@@ -1,11 +1,3 @@
-<html>
-	<head>
-	</head>
-	<body>
-		<h1>WE ARE HERE
-			</body>
-</html
-
 <?php
 // Reads the variables sent via POST from our gateway
 $sessionId   = $_POST["sessionId"];
