@@ -13,7 +13,7 @@ if ( $text == "" ) {
 	 // $response .= "2. Administer Vaccine";
    $uid += $text;
 	
-}else if ( $text == "$uid" ) {
+}else if ( $text == "12345" ) {
   // Business logic for first level response
   $response = "CON Select an option\n";
   $response .= "1. Register Child \n";
