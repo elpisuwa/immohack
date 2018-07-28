@@ -7,7 +7,7 @@ $text        = $_POST["text"];
 $uid = "12345";
 $name = "henry";
 $date  = "12/12/16";
-$no = 2;
+$no = "2";
 $phone = "08080808080";
 $mom = "ada";
 $emergency = "07070707070";
@@ -39,35 +39,35 @@ if ( $text == "" ) {
   //$response = "END Your account number is $accountNumber";
   $response = "CON Enter DOB DD/MM/YY";
  
-}else if ( $text == "12345*1*henry*$date" ) {
+}else if ( $text == "12345*1*$name*$date" ) {
   
 	 // This is a second level response where the user selected 1 in the first instance
 	 $balance  = "NGN 10,000";
 	 // This is a terminal request. Note how we start the response with END
 	 $response = "CON Number in the family";
 }
-}else if ( $text == "12345*1*henry*$date*$no" ) {
+}else if ( $text == "12345*1*$name*$date*$no" ) {
   
 	 // This is a second level response where the user selected 1 in the first instance
 	 $balance  = "NGN 10,000";
 	 // This is a terminal request. Note how we start the response with END
 	 $response = "CON Enter Parents Phone No";
 }
-else if ( $text == "12345*1*henry*$date*$no*phone" ) {
+else if ( $text == "12345*1*$name*$date*$no*phone" ) {
   
 	 // This is a second level response where the user selected 1 in the first instance
 	 $balance  = "NGN 10,000";
 	 // This is a terminal request. Note how we start the response with END
 	 $response = "CON Name of Mother";
 }
-else if ( $text == "12345*1*henry*$date*$no*phone*$mom" ) {
+else if ( $text == "12345*1*$name*$date*$no*$phone*$mom" ) {
   
 	 // This is a second level response where the user selected 1 in the first instance
 	 $balance  = "NGN 10,000";
 	 // This is a terminal request. Note how we start the response with END
 	 $response = "CON Enter Emergency No";
 }
-else if ( $text == "12345*1*henry*$date*$no*phone*$mom*$emergency" ) {
+else if ( $text == "12345*1*$name*$date*$no*$phone*$mom*$emergency" ) {
   
 	 // This is a second level response where the user selected 1 in the first instance
 	 $balance  = "NGN 10,000";
