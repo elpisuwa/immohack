@@ -4,16 +4,16 @@ $sessionId   = $_POST["sessionId"];
 $serviceCode = $_POST["serviceCode"];
 $phoneNumber = $_POST["phoneNumber"];
 $text        = $_POST["text"];
-$uid = "";
+$uid = "12345";
 
 if ( $text == "" ) {
 	 // This is the first request. Note how we start the response with CON
 	 $response  = "CON Enter UID \n";
 	 // $response .= "1. Register Child \n";
 	 // $response .= "2. Administer Vaccine";
-   $uid += $text;
+   //$uid .= $text;
 	
-}else if ( $text == "12345" ) {
+}else if ( $text == "$uid" ) {
   // Business logic for first level response
   $response = "CON Select an option\n";
   $response .= "1. Register Child \n";
