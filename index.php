@@ -11,13 +11,13 @@ if ( $text == "" ) {
 	 // $response .= "2. Administer Vaccine";
    $uid= $text;
 	
-}else if ( !$text == "" ) {
+}else if ( $text == "12345" ) {
   // Business logic for first level response
   $response = "CON Select an option\n";
   $response .= "1. Register Child \n";
   $response .= "2. Administer Vaccine";
   
-}else if($text == "1*1") {
+}else if($text == "12345*1") {
  
   // Business logic for first level response
   // This is a terminal request. Note how we start the response with END
