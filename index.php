@@ -6,12 +6,14 @@ $phoneNumber = $_POST["phoneNumber"];
 $text        = $_POST["text"];
 $uid = "12345";
 $name = "henry";
-$date  = "12/12/16";
-$no = "2";
+$dob  = "12/12/16";
+$child_position = "2";
 $phone = "08080808080";
-$mom = "ada";
+$mother = "ada";
 $emergency = "07070707070";
-if ( $text == "" ) {
+$child1="chisom";
+$child2="adaku";
+if ( $text == "" || $text == "1") {
    // This is the first request. Note how we start the response with CON
    $response  = "CON Enter UID \n";
    // $response .= "1. Register Child \n";
@@ -20,61 +22,99 @@ if ( $text == "" ) {
   
 }else if ( $text == "$uid" ) {
   // Business logic for first level response
-  $response = "CON Select an option\n";
-  $response .= "1. Register Child \n";
-  $response .= "2. Administer Vaccine";
+  $response = "CON Enter Mother's Number\n";
   
-}else if($text == "$uid*1") {
- 
+}
+else if ( $text == "$uid*$phone" || $text == "$uid*$phone*1*2" ) {
   // Business logic for first level response
-  // This is a terminal request. Note how we start the response with END
-  $response = "CON Enter name";
+  $response = "CON Select an option\n";
+  $response .= "1. $child1 \n";
+  $response .= "2. $child2 \n";
+  $response .= "3. Add a Child";
+  
+}else if($text == "$uid*$phone*1") {
+ 
+ //choose 1st child
+  $response = "CON Chisom has completed her immunization\n";
+  $response .= "2. Back";
+}
+
+else if($text == "$uid*$phone*2") {
+ 
+  //choose second child
+  $response = "CON Adaku is due for immunization\n";
+  $response .= "1. Administer Immunization";
+  $response .= "2. Exit";
  $array = explode('*', $text);
  $childs_name=array_pop((array_slice($array, -1, 1)));
-}else if($text == "$uid*1*$name") {
+}
+else if($text == "$uid*$phone*2*1") {
  
-  // This is a second level response where the user selected 1 in the first instance
-  
-  // This is a terminal request. Note how we start the response with END
-  //$response = "END Your account number is $accountNumber";
+  //choose to administer Immunization to Second Child
+  $response = "CON onfirm Immunization\n";
+  $response .= "1. Yes \n";
+  $response .= "2. Exit";
+
+}
+else if($text == "$uid*$phone*2*1*1") {
+ 
+  //cONFIRM IMMUNIZATION
+  $response = "END Immunization record updated\n";
+}
+else if($text == "$uid*$phone*3") {
+ 
+ //add child name
+  $response = "CON Enter Childs name\n";
+  //$response .= "2. Back";
+}
+else if($text == "$uid*$phone*3*$name") {
+ 
+  //add dob
   $response = "CON Enter DOB DD/MM/YY";
  
-}else if ( $text == "12345*1*$name*$date" ) {
+}else if ( $text == "$uid*$phone*3*$name*$dob" ) {
   
-   // This is a second level response where the user selected 1 in the first instance
-   $balance  = "NGN 10,000";
-   // This is a terminal request. Note how we start the response with END
+   //enter child position
    $response = "CON Number in the family";
 }
-else if ( $text == "12345*1*$name*$date*$no" ) {
+else if ( $text == "$uid*$phone*3*$name*$dob*$child_position" ) {
   
-   // This is a second level response where the user selected 1 in the first instance
-   $balance  = "NGN 10,000";
-   // This is a terminal request. Note how we start the response with END
+   //enter parent no
    $response = "CON Enter Parents Phone No";
 }
-else if ( $text == "12345*1*$name*$date*$no*$phone" ) {
+else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone" ) {
   
-   // This is a second level response where the user selected 1 in the first instance
-   $balance  = "NGN 10,000";
-   // This is a terminal request. Note how we start the response with END
+   //add phone number
    $response = "CON Name of Mother";
 }
-else if ( $text == "12345*1*$name*$date*$no*$phone*$mom" ) {
+else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone*$mother" ) {
   
-   // This is a second level response where the user selected 1 in the first instance
-   $balance  = "NGN 10,000";
-   // This is a terminal request. Note how we start the response with END
+   //Add Emergency
    $response = "CON Enter Emergency No";
 }
-else if ( $text == "12345*1*$name*$date*$no*$phone*$mom*$emergency" ) {
+else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone*$mother*$emergency" ) {
   
-   // This is a second level response where the user selected 1 in the first instance
-   $balance  = "NGN 10,000";
-   // This is a terminal request. Note how we start the response with END
-//   $response = "CON Enter Emergency No";
-  $response = "END The record was saved succesfully";
+   //child has be
+  $response = "CON The record was saved succesfully/n";
+  $response .= "1. Perform Immunization";
+  $response .= "2. Exit"
 }
+
+else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone*$mother*$emergency*1" ) {
+  
+   //child has be
+  $response = "CON The record was saved succesfully/n";
+  $response .= "1. Perform Immunization";
+  $response .= "2. Exit"
+  $text="";
+}
+else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone*$mother*$emergency*2" ) {
+  
+   //child has be
+  $response = "END Remember: Every child matters";
+  
+}
+
 
 
 // Print the response onto the page so that our gateway can read it
@@ -83,20 +123,20 @@ echo $response;
 // DONE!!!
 
 
-$url = 'https://9342ab1e.ngrok.io';
-$data = array('OfficeID' => $name, 'DateOfBirth' => $date,'EmergencyNumber' => $emergency, 'Name' => $name, 'ParentNumber'=> $phone);
+// $url = 'https://9342ab1e.ngrok.io';
+// $data = array('OfficeID' => $name, 'DateOfBirth' => $dob,'EmergencyNumber' => $emergency, 'Name' => $name, 'ParentNumber'=> $phone);
 
-// use key 'http' even if you send the request to https://...
-$options = array(
-    'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data)
-    )
-);
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-if ($result === FALSE) { /* Handle error */ }
+// // use key 'http' even if you send the request to https://...
+// $options = array(
+//     'http' => array(
+//         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+//         'method'  => 'POST',
+//         'content' => http_build_query($data)
+//     )
+// );
+// $context  = stream_context_create($options);
+// $result = file_get_contents($url, false, $context);
+// if ($result === FALSE) { /* Handle error */ }
 
-var_dump($result);
+// var_dump($result);
 ?>
