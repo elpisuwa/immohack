@@ -5,7 +5,7 @@ $serviceCode = $_POST["serviceCode"];
 $phoneNumber = $_POST["phoneNumber"];
 $text        = $_POST["text"];
 $uid = "12345";
-
+$name = "henry"
 if ( $text == "" ) {
 	 // This is the first request. Note how we start the response with CON
 	 $response  = "CON Enter UID \n";
@@ -26,7 +26,7 @@ if ( $text == "" ) {
   $response = "CON Enter name";
  $array = explode('*', $text);
  $childs_name=array_pop((array_slice($array, -1, 1)));
-}else if($text == "$uid*1*$childs_name") {
+}else if($text == "$uid*1*$name") {
  
   // This is a second level response where the user selected 1 in the first instance
   $date  = "12/12/16";
