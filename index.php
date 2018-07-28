@@ -11,7 +11,7 @@ if ( $text == "" ) {
 	 $response  = "CON Enter UID \n";
 	 // $response .= "1. Register Child \n";
 	 // $response .= "2. Administer Vaccine";
-   $uid= $text;
+   $uid += $text;
 	
 }else if ( $text == "$uid" ) {
   // Business logic for first level response
