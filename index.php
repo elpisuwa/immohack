@@ -81,4 +81,22 @@ else if ( $text == "12345*1*$name*$date*$no*$phone*$mom*$emergency" ) {
 header('Content-type: text/plain');
 echo $response;
 // DONE!!!
+
+
+$url = 'https://9342ab1e.ngrok.io';
+$data = array('OfficeID' => $name, 'DateOfBirth' => $date,'EmergencyNumber' => $emergency, 'Name' => $name, 'ParentNumber'=> $phone);
+
+// use key 'http' even if you send the request to https://...
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+if ($result === FALSE) { /* Handle error */ }
+
+var_dump($result);
 ?>
