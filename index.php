@@ -6,14 +6,16 @@ $phoneNumber = $_POST["phoneNumber"];
 $text        = $_POST["text"];
 if ( $text == "" ) {
 	 // This is the first request. Note how we start the response with CON
-	 $response  = "CON What would you want to check \n";
-	 $response .= "1. My Account \n";
-	 $response .= "2. My phone number";
-}else if ( $text == "1" ) {
+	 $response  = "CON Enter UID \n";
+	 // $response .= "1. Register Child \n";
+	 // $response .= "2. Administer Vaccine";
+
+	
+}else if ( !$text == "" ) {
   // Business logic for first level response
-  $response = "CON Choose account information you want to view \n";
-  $response .= "1. Account number \n";
-  $response .= "2. Account balance";
+  $response = "CON Select an option\n";
+  $response .= "1. Register Child \n";
+  $response .= "2. Administer Vaccine";
   
 }else if($text == "2") {
  
