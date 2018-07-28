@@ -5,7 +5,7 @@ $serviceCode = $_POST["serviceCode"];
 $phoneNumber = $_POST["phoneNumber"];
 $text        = $_POST["text"];
 $uid = "12345";
-$name = "henry"
+$name = "henry";
 if ( $text == "" ) {
 	 // This is the first request. Note how we start the response with CON
 	 $response  = "CON Enter UID \n";
