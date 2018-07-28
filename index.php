@@ -99,6 +99,8 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone*$mother*$eme
   $response = "CON The record was saved succesfully/n";
   $response .= "1. Perform Immunization";
   $response .= "2. Exit";
+  $registration_array = explode('*', $text);
+ $childs_name=array_pop((array_slice($array, -1, 1)));
 }
 
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone*$mother*$emergency*1" ) {
@@ -121,6 +123,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone*$mother*$eme
 // Print the response onto the page so that our gateway can read it
 header('Content-type: text/plain');
 echo $response;
+echo $registration_array;
 // DONE!!!
 
 
