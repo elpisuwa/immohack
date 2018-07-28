@@ -105,7 +105,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone*$mother*$eme
    //child has be
   $response = "CON The record was saved succesfully/n";
   $response .= "1. Perform Immunization";
-  $response .= "2. Exit"
+  $response .= "2. Exit";
   $text="";
 }
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone*$mother*$emergency*2" ) {
