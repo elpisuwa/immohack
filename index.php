@@ -12,12 +12,12 @@ $phone = "08080808080";
 $mom = "ada";
 $emergency = "07070707070";
 if ( $text == "" ) {
-	 // This is the first request. Note how we start the response with CON
-	 $response  = "CON Enter UID \n";
-	 // $response .= "1. Register Child \n";
-	 // $response .= "2. Administer Vaccine";
+   // This is the first request. Note how we start the response with CON
+   $response  = "CON Enter UID \n";
+   // $response .= "1. Register Child \n";
+   // $response .= "2. Administer Vaccine";
    //$uid .= $text;
-	
+  
 }else if ( $text == "$uid" ) {
   // Business logic for first level response
   $response = "CON Select an option\n";
@@ -41,39 +41,39 @@ if ( $text == "" ) {
  
 }else if ( $text == "12345*1*$name*$date" ) {
   
-	 // This is a second level response where the user selected 1 in the first instance
-	 $balance  = "NGN 10,000";
-	 // This is a terminal request. Note how we start the response with END
-	 $response = "CON Number in the family";
+   // This is a second level response where the user selected 1 in the first instance
+   $balance  = "NGN 10,000";
+   // This is a terminal request. Note how we start the response with END
+   $response = "CON Number in the family";
 }
-}else if ( $text == "12345*1*$name*$date*$no" ) {
+else if ( $text == "12345*1*$name*$date*$no" ) {
   
-	 // This is a second level response where the user selected 1 in the first instance
-	 $balance  = "NGN 10,000";
-	 // This is a terminal request. Note how we start the response with END
-	 $response = "CON Enter Parents Phone No";
+   // This is a second level response where the user selected 1 in the first instance
+   $balance  = "NGN 10,000";
+   // This is a terminal request. Note how we start the response with END
+   $response = "CON Enter Parents Phone No";
 }
 else if ( $text == "12345*1*$name*$date*$no*phone" ) {
   
-	 // This is a second level response where the user selected 1 in the first instance
-	 $balance  = "NGN 10,000";
-	 // This is a terminal request. Note how we start the response with END
-	 $response = "CON Name of Mother";
+   // This is a second level response where the user selected 1 in the first instance
+   $balance  = "NGN 10,000";
+   // This is a terminal request. Note how we start the response with END
+   $response = "CON Name of Mother";
 }
 else if ( $text == "12345*1*$name*$date*$no*$phone*$mom" ) {
   
-	 // This is a second level response where the user selected 1 in the first instance
-	 $balance  = "NGN 10,000";
-	 // This is a terminal request. Note how we start the response with END
-	 $response = "CON Enter Emergency No";
+   // This is a second level response where the user selected 1 in the first instance
+   $balance  = "NGN 10,000";
+   // This is a terminal request. Note how we start the response with END
+   $response = "CON Enter Emergency No";
 }
 else if ( $text == "12345*1*$name*$date*$no*$phone*$mom*$emergency" ) {
   
-	 // This is a second level response where the user selected 1 in the first instance
-	 $balance  = "NGN 10,000";
-	 // This is a terminal request. Note how we start the response with END
-// 	 $response = "CON Enter Emergency No";
-	$response = "END The record was saved succesfully";
+   // This is a second level response where the user selected 1 in the first instance
+   $balance  = "NGN 10,000";
+   // This is a terminal request. Note how we start the response with END
+//   $response = "CON Enter Emergency No";
+  $response = "END The record was saved succesfully";
 }
 
 
