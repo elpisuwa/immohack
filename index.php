@@ -11,19 +11,20 @@ if ( $text == "" ) {
 	 // $response .= "2. Administer Vaccine";
    $uid= $text;
 	
-}else if ( $text == "12345" ) {
+}else if ( $text == "$uid" ) {
   // Business logic for first level response
   $response = "CON Select an option\n";
   $response .= "1. Register Child \n";
   $response .= "2. Administer Vaccine";
   
-}else if($text == "12345*1") {
+}else if($text == "$uid*1") {
  
   // Business logic for first level response
   // This is a terminal request. Note how we start the response with END
   $response = "CON Enter name";
- 
-}else if($text == "12345*1*henry") {
+ $array = explode('*', $text);
+ $childs_name=array_pop((array_slice($array, -1, 1)));
+}else if($text == "$uid*1*$childs_name") {
  
   // This is a second level response where the user selected 1 in the first instance
   $date  = "12/12/16";
