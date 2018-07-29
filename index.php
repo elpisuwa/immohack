@@ -96,7 +96,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother" ) {
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency" ) {
   
    //child has be
-   $response = "CON The record was saved succesfully/n";
+   $response = "CON The record was saved succesfully /n";
   $response .= "1. Perform Immunization /n";
   $response .= "2. Exit";
   
@@ -105,9 +105,9 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency"
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*1" ) {
   
    //child has be
-  $response = "END Confirm Immunization/n";
-  $response .= "1. Confirm/n";
-  $response .= "2. Exit/n";
+  $response = "CON Confirm Immunization /n";
+  $response .= "1. Confirm /n";
+  $response .= "2. Exit /n";
  // $text="";
 }
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*1*1" ) {
