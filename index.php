@@ -15,7 +15,7 @@ $child1="chisom";
 $child2="adaku";
 if ( $text == "" || $text == "1") {
    // This is the first request. Note how we start the response with CON
-   $response  = "CON Enter UID \n";
+   $response  = "CON Enter Unique Officer ID \n";
    // $response .= "1. Register Child \n";
    // $response .= "2. Administer Vaccine";
    //$uid .= $text;
