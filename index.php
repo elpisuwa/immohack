@@ -100,7 +100,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency"
   $response .= "1. Perform Immunization /n";
   $response .= "2. Exit";
   $registration_array = explode('*', $text);
- $childs_name=array_pop((array_slice($array, -1, 1)));
+// $childs_name=array_pop((array_slice($array, -1, 1)));
   //echo $registration_array;
 
 $url = 'https://16e1ec59.ngrok.io';
