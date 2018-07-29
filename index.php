@@ -23,6 +23,11 @@ if ( $text == "" || $text == "1") {
 }else if ( $text == "$uid" ) {
   // Business logic for first level response
   $response = "CON Enter Mother's Phone Number\n";
+  ?>
+<script type="text/javascript">
+  let answer = <?php echo $text; ?>
+</script>
+  <?php
   
 }
 else if ( $text == "$uid*$phone" || $text == "$uid*$phone*1*2" ) {
