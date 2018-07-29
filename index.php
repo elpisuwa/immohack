@@ -7,7 +7,7 @@ $text        = $_POST["text"];
 $uid = "12345";
 $name = "henry";
 $dob  = "12/12/16";
-$child_position = "2";
+$child_position = "3";
 $phone = "08080808080";
 $mother = "ada";
 $emergency = "07070707070";
@@ -125,8 +125,8 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*
 // Print the response onto the page so that our gateway can read it
 header('Content-type: text/plain');
 echo $response;
-echo $text;
-echo $registration_array;
+//echo $text;
+//echo $registration_array;
 // DONE!!!
 
 function post_register(){
