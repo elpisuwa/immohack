@@ -7,15 +7,18 @@ $text        = $_POST["text"];
 $uid = "12345";
 $name = "henry";
 $dob  = "12/12/16";
-$child_position = "3";
+$child_position = "2";
 $phone = "08080808080";
 $mother = "ada";
 $emergency = "07070707070";
 $child1="chisom";
 $child2="adaku";
+
+$text_length = explode ("*",$text);
+$text_count = count($text_length);
 if ( $text == "" || $text == "1") {
    // This is the first request. Note how we start the response with CON
-   $response  = "CON Enter Unique Officer ID \n";
+   $response  = "CON Enter UID \n";
    // $response .= "1. Register Child \n";
    // $response .= "2. Administer Vaccine";
    //$uid .= $text;
@@ -40,7 +43,6 @@ else if ( $text == "$uid*$phone" || $text == "$uid*$phone*1*2" ) {
   $response = "END Chisom has completed her immunization\n";
  // $response .= "2. Back";
 }
-
 else if($text == "$uid*$phone*2") {
  
   //choose second child
@@ -56,7 +58,6 @@ else if($text == "$uid*$phone*2*1") {
   $response = "END Confirm Immunization\n";
   $response .= "1. Yes \n";
   $response .= "2. Exit";
-
 }
 else if($text == "$uid*$phone*2*1*1") {
  
@@ -95,14 +96,12 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother" ) {
    $response = "CON Enter Emergency No";
 }
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency" ) {
-  
+  post_register();
    //child has be
-   $response = "CON The record was saved succesfully \n";
-  $response .= "1. Perform Immunization \n";
+   $response = "CON The record was saved succesfully /n";
+  $response .= "1. Perform Immunization /n";
   $response .= "2. Exit";
-
 }
-
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*1" ) {
   
    //child has be
@@ -110,29 +109,20 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*
   $response .= "1. Confirm /n";
   $response .= "2. Exit /n";
  // $text="";
-
-
 }
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*1*1" ) {
   
    //child has be
   $response = "END Remember: Immunization Recorded Successfully";
-  post_register();
+  //post_register();
 }
-
  echo $registration_array;
-
 // Print the response onto the page so that our gateway can read it
 header('Content-type: text/plain');
-echo $response;
-//echo $text;
-//echo $registration_array;
-// DONE!!!
 
 function post_register(){
 $url = 'https://16e1ec59.ngrok.io';
 $data = array('OfficerID' => $uid, 'DateOfBirth' => $dob,'EmergencyNumber' => $emergency, 'ParentNumber' => $phone, 'ParentName'=> $mother, 'ChildName'=> $name);
-
 // use key 'http' even if you send the request to https://...
 $options = array(
     'http' => array(
@@ -144,7 +134,6 @@ $options = array(
 $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 if ($result === FALSE) { /* Handle error */ }
-
 var_dump($result);
 }
 ?>
