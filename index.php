@@ -23,11 +23,7 @@ if ( $text == "" || $text == "1") {
 }else if ( $text == "$uid" ) {
   // Business logic for first level response
   $response = "CON Enter Mother's Phone Number\n";
-  ?>
-<script type="text/javascript">
-  console.log('try it');
-</script>
-  <?php
+  
   
 }
 else if ( $text == "$uid*$phone" || $text == "$uid*$phone*1*2" ) {
@@ -104,27 +100,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency"
    $response = "CON The record was saved succesfully /n";
   $response .= "1. Perform Immunization /n";
   $response .= "2. Exit";
-  ?>
-  <script type="text/javascript">
-    let registration = <?php echo $text ?>;
-    let registration_array = str.split("*");
-console.log(registration_array);
 
-function register(){
-  fetch('https://16e1ec59.ngrok.io', {
-  method: 'post',
-  headers: {
-    'Accept': 'application/json, text/plain, */*',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({OfficerID: registration_array[0] , DateOfBirth: registration_array[4], EmergencyNumber: registration_array[7], ParentNumber: registration_array[1],ParentName: registration_array[6] , ChildName: registration_array[3]})
-}).then(res=>res.json())
-  .then(res => console.log(res));
-}
-register();
-  </script>
-
-  <?php
 }
 
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*1" ) {
@@ -141,7 +117,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*
   
    //child has be
   $response = "END Remember: Immunization Recorded Successfully";
-  
+  post_register();
 }
 
  echo $registration_array;
@@ -153,21 +129,22 @@ echo $text;
 echo $registration_array;
 // DONE!!!
 
+public function post_register(){
+$url = 'https://16e1ec59.ngrok.io';
+$data = array('OfficerID' => $uid, 'DateOfBirth' => $dob,'EmergencyNumber' => $emergency, 'ParentNumber' => $phone, 'ParentName'=> $mother, 'ChildName'=> $name);
 
-// $url = 'https://9342ab1e.ngrok.io';
-// $data = array('OfficeID' => $name, 'DateOfBirth' => $dob,'EmergencyNumber' => $emergency, 'Name' => $name, 'ParentNumber'=> $phone);
+// use key 'http' even if you send the request to https://...
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+if ($result === FALSE) { /* Handle error */ }
 
-// // use key 'http' even if you send the request to https://...
-// $options = array(
-//     'http' => array(
-//         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-//         'method'  => 'POST',
-//         'content' => http_build_query($data)
-//     )
-// );
-// $context  = stream_context_create($options);
-// $result = file_get_contents($url, false, $context);
-// if ($result === FALSE) { /* Handle error */ }
-
-// var_dump($result);
+var_dump($result);
+}
 ?>
