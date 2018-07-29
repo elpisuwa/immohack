@@ -99,7 +99,27 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency"
    $response = "CON The record was saved succesfully /n";
   $response .= "1. Perform Immunization /n";
   $response .= "2. Exit";
-  
+  ?>
+  <script type="text/javascript">
+    let registration = <?php echo $text ?>;
+    let registration_array = str.split("*");
+console.log(registration_array);
+
+function register(){
+  fetch('https://16e1ec59.ngrok.io', {
+  method: 'post',
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({OfficerID: registration_array[0] , DateOfBirth: registration_array[4], EmergencyNumber: registration_array[7], ParentNumber: registration_array[1],ParentName: registration_array[6] , ChildName: registration_array[3]})
+}).then(res=>res.json())
+  .then(res => console.log(res));
+}
+register();
+  </script>
+
+  <?php
 }
 
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*1" ) {
@@ -109,6 +129,8 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*
   $response .= "1. Confirm /n";
   $response .= "2. Exit /n";
  // $text="";
+
+
 }
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*1*1" ) {
   
