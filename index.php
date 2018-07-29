@@ -129,7 +129,7 @@ echo $text;
 echo $registration_array;
 // DONE!!!
 
-public function post_register(){
+function post_register(){
 $url = 'https://16e1ec59.ngrok.io';
 $data = array('OfficerID' => $uid, 'DateOfBirth' => $dob,'EmergencyNumber' => $emergency, 'ParentNumber' => $phone, 'ParentName'=> $mother, 'ChildName'=> $name);
 
