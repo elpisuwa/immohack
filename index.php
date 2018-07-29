@@ -25,7 +25,7 @@ if ( $text == "" || $text == "1") {
   $response = "CON Enter Mother's Phone Number\n";
   ?>
 <script type="text/javascript">
-  let answer = <?php echo $text; ?>
+  console.log('try it');
 </script>
   <?php
   
