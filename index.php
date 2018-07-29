@@ -101,7 +101,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency"
   $response .= "2. Exit";
   $registration_array = explode('*', $text);
  $childs_name=array_pop((array_slice($array, -1, 1)));
-  echo $registration_array;
+  //echo $registration_array;
 
 $url = 'https://16e1ec59.ngrok.io';
 $data = array('OfficerID' => $uid, 'DateOfBirth' => $dob,'EmergencyNumber' => $emergency, 'Name' => $name, 'ParentNumber'=> $phone);
@@ -136,7 +136,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*
   
 }
 
-
+ echo $registration_array;
 
 // Print the response onto the page so that our gateway can read it
 header('Content-type: text/plain');
