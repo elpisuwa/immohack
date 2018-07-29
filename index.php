@@ -22,7 +22,7 @@ if ( $text == "" || $text == "1") {
   
 }else if ( $text == "$uid" ) {
   // Business logic for first level response
-  $response = "CON Enter Mother's Number\n";
+  $response = "CON Enter Mother's Phone Number\n";
   
 }
 else if ( $text == "$uid*$phone" || $text == "$uid*$phone*1*2" ) {
@@ -81,7 +81,7 @@ else if($text == "$uid*$phone*3*$name") {
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position" ) {
  // echo $text;
    //enter parent no
-   $response = "CON Enter Parents Phone No";  
+   $response = "CON Enter Mother's name";  
 }
 // else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$phone" ) {
   
