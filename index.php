@@ -96,29 +96,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother" ) {
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency" ) {
   
    //child has be
-  $response = "CON The record was saved succesfully/n";
-  $response .= "1. Perform Immunization /n";
-  $response .= "2. Exit";
-  $registration_array = explode('*', $text);
-// $childs_name=array_pop((array_slice($array, -1, 1)));
-  //echo $registration_array;
-
-$url = 'https://16e1ec59.ngrok.io';
-$data = array('OfficerID' => $uid, 'DateOfBirth' => $dob,'EmergencyNumber' => $emergency, 'Name' => $name, 'ParentNumber'=> $phone);
-
-// use key 'http' even if you send the request to https://...
-$options = array(
-    'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data)
-    )
-);
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-if ($result === FALSE) { /* Handle error */ }
-
-var_dump($result);
+  
 }
 
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*1" ) {
@@ -141,6 +119,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*
 // Print the response onto the page so that our gateway can read it
 header('Content-type: text/plain');
 echo $response;
+echo $text;
 echo $registration_array;
 // DONE!!!
 
