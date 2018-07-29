@@ -121,7 +121,7 @@ else if ( $text == "$uid*$phone*3*$name*$dob*$child_position*$mother*$emergency*
 header('Content-type: text/plain');
 
 function post_register(){
-$url = 'https://16e1ec59.ngrok.io';
+$url = '1ce01bde.ngrok.io';
 $data = array('OfficerID' => $uid, 'DateOfBirth' => $dob,'EmergencyNumber' => $emergency, 'ParentNumber' => $phone, 'ParentName'=> $mother, 'ChildName'=> $name);
 // use key 'http' even if you send the request to https://...
 $options = array(
