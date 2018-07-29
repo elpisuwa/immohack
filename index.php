@@ -79,7 +79,7 @@ else if($text == "$uid*$phone*3*$name") {
    $response = "CON Number in the family";
 }
 else if ( $text == "$uid*$phone*3*$name*$dob*$child_position" ) {
-  echo $text;
+ // echo $text;
    //enter parent no
    $response = "CON Enter Parents Phone No";  
 }
